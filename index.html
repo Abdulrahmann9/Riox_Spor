@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riox Spor</title>
+  <style>
+    :root {
+      --primary: #f2545b;
+      --secondary: #ffd166;
+      --background: #fff;
+      --text: #333;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    header {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .lang-toggle {
+      background: var(--secondary);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .lang-toggle img {
+      width: 20px;
+      height: 14px;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      background-color: var(--secondary);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      max-width: 100%;
+      border-radius: 4px;
+      transition: transform 0.2s;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .contact-info {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Riox Spor</div>
+    <button class="lang-toggle" onclick="toggleLanguage()">
+      <img id="lang-flag" src="https://flagcdn.com/w40/gb.png" alt="Flag"><span id="lang-text"> EN</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2 class="section-title" id="shoes-title">Ayakkabılarımız</h2>
+      <div class="gallery">
+        <div class="gallery-item"><img src="shoe1.jpg" alt="Shoe 1" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe2.jpg" alt="Shoe 2" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe3.jpg" alt="Shoe 3" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe4.jpg" alt="Shoe 4" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe5.jpg" alt="Shoe 5" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe6.jpg" alt="Shoe 6" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe7.jpg" alt="Shoe 7" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe8.jpg" alt="Shoe 8" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe9.jpg" alt="Shoe 9" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe10.jpg" alt="Shoe 10" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe11.jpg" alt="Shoe 11" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe12.jpg" alt="Shoe 12" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe13.jpg" alt="Shoe 13" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe14.jpg" alt="Shoe 14" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe15.jpg" alt="Shoe 15" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe16.jpg" alt="Shoe 16" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe17.jpg" alt="Shoe 17" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe18.jpg" alt="Shoe 18" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe19.jpg" alt="Shoe 19" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe20.jpg" alt="Shoe 20" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe21.jpg" alt="Shoe 21" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe22.jpg" alt="Shoe 22" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe23.jpg" alt="Shoe 23" onclick="openModal(this.src)"></div>
+        <div class="gallery-item"><img src="shoe24.jpg" alt="Shoe 24" onclick="openModal(this.src)"></div>
+      </div>
+    </section>
+
+    <section style="margin-top: 4rem;">
+      <h2 class="section-title" id="contact-title">İletişim</h2>
+      <div class="contact-info" id="contact-info">
+        <p><strong>Telefon:</strong></p>
+        <p>Yusuf Ergün: 05335469923</p>
+        <p>Basri Ergün: 05368648780</p>
+        <p>Ömer Ergün: 05327204972</p>
+        <p>Muhammed Ergün: 05552448220</p>
+        <br>
+        <p><strong>Adres:</strong><br>Yaprak mah Nizip caddesi no 144, Şehitkamil, Gaziantep</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Expanded Shoe" />
+    </div>
+  </div>
+
+  <footer>
+    <p id="footer-text">&copy; 2025 Riox Spor. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      tr: {
+        shoesTitle: "Ayakkabılarımız",
+        contactTitle: "İletişim",
+        contactInfo: `
+          <p><strong>Telefon:</strong></p>
+          <p>Yusuf Ergün: 05335469923</p>
+          <p>Basri Ergün: 05368648780</p>
+          <p>Ömer Ergün: 05327204972</p>
+          <p>Muhammed Ergün: 05552448220</p>
+          <br>
+          <p><strong>Adres:</strong><br>Yaprak mah Nizip caddesi no 144, Şehitkamil, Gaziantep</p>
+        `,
+        footerText: "&copy; 2025 Riox Spor. Tüm hakları saklıdır.",
+        flag: "https://flagcdn.com/w40/gb.png",
+        buttonText: "EN"
+      },
+      en: {
+        shoesTitle: "Our Shoes",
+        contactTitle: "Contact Us",
+        contactInfo: `
+          <p><strong>Phone:</strong></p>
+          <p>Yusuf Ergün: 05335469923</p>
+          <p>Basri Ergün: 05368648780</p>
+          <p>Ömer Ergün: 05327204972</p>
+          <p>Muhammed Ergün: 05552448220</p>
+          <br>
+          <p><strong>Address:</strong><br>Yaprak mah Nizip caddesi no 144, Şehitkamil, Gaziantep</p>
+        `,
+        footerText: "&copy; 2025 Riox Spor. All rights reserved.",
+        flag: "https://flagcdn.com/w40/tr.png",
+        buttonText: "TR"
+      }
+    };
+
+    let currentLang = 'tr';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'tr' : 'en';
+      const langData = translations[currentLang];
+
+      document.getElementById('shoes-title').textContent = langData.shoesTitle;
+      document.getElementById('contact-title').textContent = langData.contactTitle;
+      document.getElementById('contact-info').innerHTML = langData.contactInfo;
+      document.getElementById('footer-text').innerHTML = langData.footerText;
+      document.getElementById('lang-flag').src = langData.flag;
+      document.getElementById('lang-text').textContent = ' ' + langData.buttonText;
+    }
+
+    function openModal(src) {
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImage");
+      modalImg.src = src;
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
